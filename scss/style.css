@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
+.swiper {
+  width: 100dvw;
+  height: 100dvh;
+  background-color: #000;
+}
+
+.swiper-slide {
+  height: auto !important;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 30px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide:first-child {
+  padding-left: 18px;
+}
+.swiper-slide:last-child {
+  padding-right: 18px;
+}
+.swiper-slide .swiperSlideWrap {
+  border-radius: 30px;
+  height: 100%;
+  color: #fff;
+  width: 80vw;
+}
+.swiper-slide .heroSlide {
+  display: flex;
+  flex-wrap: wrap;
+  background: #000;
+  color: #fff;
+}
+
+.bento {
+  display: flex;
+  border-radius: 30px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.bento.one {
+  flex: 1 0 90px;
+  height: 70%;
+  max-width: 90px;
+}
+.bento.two {
+  flex: 1 0 90%;
+  height: 70%;
+}
+.bento.three, .bento.four {
+  flex: 1 0 50%;
+  height: 30%;
+}
+
+.bentoInner {
+  margin: 18px;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.typeTwo .bento {
+  display: flex;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-slide {
+  width: auto !important;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  left: -100px; /* Initial position */
+  width: 100px; /* Adjust width as needed */
+  height: 100dvh; /* Adjust height as needed */
+  background-color: #000;
+  color: white;
+  transition: left 0.3s ease-in-out; /* Transition for smooth animation */
+  z-index: 99999999;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+#menu:before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url(../assets/menu-style.svg);
+  background-size: cover;
+  top: calc(18px * 2);
+  left: 100px;
+  position: absolute;
+}
+#menu:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url(../assets/menu-style.svg);
+  background-size: cover;
+  bottom: 18px;
+  left: 100px;
+  position: absolute;
+  transform: scaleY(-1);
+}
+
+#menuButton {
+  position: absolute;
+  top: 20px;
+  right: -200px;
+  z-index: 99999999;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: ease-in-out all 0.2s;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  -webkit-box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) {
+  .bentoInner {
+    border: 1px solid yellow;
+  }
+  .hide-mobile {
+    display: none !important;
+  }
+  #menuButton {
+    right: 20px;
+  }
+  .bento {
+    display: flex;
+    border-radius: 30px;
+    box-sizing: border-box;
+  }
+  .bento.two {
+    height: 30%;
+  }
+  .bento.three, .bento.four {
+    height: 33.3%;
+    min-width: 100%;
+  }
+}
+.bento {
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.bento.two .bentoInner {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  padding: 5% 50% 8% 5%;
+  background-color: #131114;
+  background-image: url(../assets/heroslide.png);
+  background-size: cover;
+  background-position: center right;
+}
+
+.bento.one .bentoInner {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  background-color: #9096e2;
+  padding: 1%;
+  color: #000;
+}
+.bento.one .bentoInner a {
+  padding: 20%;
+  transition: ease-in-out all 0.2s;
+  position: relative;
+  z-index: 1;
+}
+.bento.one .bentoInner a:before {
+  display: block;
+  content: "";
+  width: 40px;
+  height: 40px;
+  border-radius: 500px;
+  background-color: #FFCCCC;
+  position: absolute;
+  top: 20%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: ease-in-out all 0.2s;
+  opacity: 0;
+}
+.bento.one .bentoInner a:hover:before {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.bento.one .bentoInner a img {
+  width: 30px;
+  height: 30px;
+}
+
+.bento.three .bentoInner {
+  background-color: #9096e2;
+}
+
+.bento.four .bentoInner {
+  background-color: #9096e2;
+}
+
+.typeTwo .bentoInner {
+  background-image: url(../assets/portfolio-1.png);
+  background-size: cover;
+  background-position: center;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 8.5vh;
+  margin-bottom: 0.3rem;
+  line-height: 120%;
+}
+
+p {
+  font-size: 22px;
+}
+
+
+html,
+body {
+  position: relative;
+  height: 100dvh !important;
+  overflow-y: hidden !important;
+  margin: 0;
+  padding: 0;
+}/*# sourceMappingURL=style.css.map */

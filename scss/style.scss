@@ -1,0 +1,15 @@
+@import "_swiper";
+@import "_colors";
+@import "_typography";
+
+/*# sourceMappingURL=style.scss.map */
+
+html,
+body {
+  position: relative;
+  height: 100dvh !important;
+
+  overflow-y: hidden !important;
+  margin: 0;
+  padding: 0;
+}
