@@ -9,8 +9,8 @@ $borderRadius: 30px;
 .swiper {
   //   width: calc(100dvw - #{$mainPadding} * 2);
   //   height: calc(100dvh - #{$mainPadding} * 2);
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: 100%;
 
   background-color: #000;
 }
@@ -49,7 +49,6 @@ $borderRadius: 30px;
     width: 80vw;
     // border: 1px solid #eee;
   }
-
 
   .heroSlide {
     display: flex;
@@ -116,14 +115,16 @@ $borderRadius: 30px;
 }
 
 #menu {
-  position: fixed;
+  position: absolute;
   top: 0;
   padding-top: $mainPadding;
   padding-bottom: $mainPadding;
   left: -100px; /* Initial position */
   width: 100px; /* Adjust width as needed */
-  height: 100dvh; /* Adjust height as needed */
-  background-color: #000;
+  height: calc(100% - $mainPadding * 2);
+  // background-image: url(../assets/sidebar-bg.svg);
+  // background-size: 100%;
+  // background-position: bottom right;
   color: white;
   transition: left 0.3s ease-in-out; /* Transition for smooth animation */
   z-index: 99999999;
@@ -131,6 +132,21 @@ $borderRadius: 30px;
   display: flex;
   align-items: start;
   justify-content: center;
+  padding-bottom: 45px;
+
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 70%;
+    background-image: url(../assets/sidebar-bg.svg);
+    background-size: cover;
+    background-position: bottom right;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+  }
 
   &:before {
     content: "";
@@ -143,25 +159,26 @@ $borderRadius: 30px;
     left: 100px;
     position: absolute;
   }
+}
 
-  &:after {
-    content: "";
-    display: block;
-    width: 30px;
-    height: 30px;
-    background-image: url(../assets/menu-style.svg);
-    background-size: cover;
-    bottom: $mainPadding;
-    left: 100px;
-    position: absolute;
-    transform: scaleY(-1);
-  }
+.link {
+  display: block;
+  box-sizing: border-box;
+  position: fixed;
+  width: 55px;
+  height: 10%;
+  border-radius: 500px;
+  background-color: $primary;
+  margin-top: 72vh;
+  top: 0;
+
+
 }
 
 // Media queries
 
 #menuButton {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: -200px;
   z-index: 99999999;
@@ -172,11 +189,12 @@ $borderRadius: 30px;
   border-radius: 5px;
   transition: ease-in-out all 0.2s;
   display: block;
-  -webkit-overflow-scrolling: touch;
-  -webkit-box-sizing: border-box;
 }
 
 @media screen and (max-width: 1200px) {
+  .typeTwo {
+    min-width: 100vw;
+  }
   .bentoInner {
     border: 1px solid yellow;
   }
@@ -241,25 +259,24 @@ $borderRadius: 30px;
 
     a {
       padding: 20%;
-      transition: ease-in-out all .2s;
+      transition: ease-in-out all 0.2s;
       position: relative;
       z-index: 1;
 
       &:before {
         display: block;
-        content: '';
+        content: "";
         width: 40px;
         height: 40px;
         border-radius: 500px;
-        background-color: #FFCCCC;
+        background-color: #ffcccc;
         position: absolute;
         top: 20%;
         left: 0%;
         transform: translate(-50%, -50%);
         z-index: -1;
-        transition: ease-in-out all .2s;
+        transition: ease-in-out all 0.2s;
         opacity: 0;
-
       }
 
       &:hover {
@@ -269,8 +286,8 @@ $borderRadius: 30px;
         }
       }
       img {
-        width: 30px;
-        height: 30px;
+        width: 36px;
+        height: 36px;
       }
     }
   }
@@ -290,13 +307,50 @@ $borderRadius: 30px;
 
 .typeTwo {
   .bentoInner {
-    background-image: url(../assets/portfolio-1.png);
+    background-image: url(https://cdn.dribbble.com/userupload/13501578/file/original-e34bb666ee4046bfffbcd951e9accc65.png?resize=2048x1536);
     background-size: cover;
     background-position: center;
   }
 }
 
-
 // ------------
-// Slide Three offset test
+// Menu
 
+.animated {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Smooth transition for opacity change */
+}
+
+.animated.visible {
+  opacity: 1;
+}
+
+.flipInX {
+  animation: flipInX 1s ease;
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes flipInX {
+  from {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

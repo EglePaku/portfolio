@@ -11,12 +11,6 @@
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
 
-    <!-- Animate CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-
     <!-- Tilt.js CSS -->
     <link
       rel="stylesheet"
@@ -37,121 +31,109 @@
     </style>
   </head>
   <body>
-    <!-- /////////// Menu ///////////// -->
-    <div id="menu" class="">
-      <!-- Bento One -->
-      <div class="bento one wow animate__animated animate__flipInY">
-        <div class="bentoInner">
-          <a href="#">
-            <img src="assets/icon-tiktok.svg" alt="" />
-          </a>
-          <a href="#">
-            <img src="assets/icon-instagram.svg" alt="" />
-          </a>
-          <a href="#">
-            <img src="assets/icon-facebook.svg" alt="" />
-          </a>
+<div class="wrapper">
+      <!-- /////////// Menu ///////////// -->
+      <div id="menu" class="">
+        <!-- Bento One -->
+        <div class="bento one">
+          <div class="bentoInner" data-tilt data-tilt-max="10">
+            <a href="#">
+              <img src="assets/icon-tiktok.svg" alt="" />
+            </a>
+            <a href="#">
+              <img src="assets/icon-instagram.svg" alt="" />
+            </a>
+            <a href="#">
+              <img src="assets/icon-facebook.svg" alt="" />
+            </a>
+          </div>
         </div>
+        <!-- Another link -->
+        <div class="link" data-tilt data-tilt-max="30"></div>
       </div>
-    </div>
-    <div id="menuButton">Toggle Menu Position</div>
-
-    <!-- Scroll-to button -->
-    <button id="scrollToSlideThree">Scroll to Slide Three</button>
-
-    <!-- /////////// Swiper ////////// -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <!-- Slide -->
-        <div class="swiper-slide">
-          <div class="swiperSlideWrap heroSlide swiper-zoom-container">
-            <!-- Bento One -->
-            <div
-              class="bento one hide-mobile wow animate__animated animate__flipInY"
-            >
-              <div class="bentoInner">
-                <a href="#">
-                  <img src="assets/icon-tiktok.svg" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/icon-instagram.svg" alt="" />
-                </a>
-                <a href="#">
-                  <img src="assets/icon-facebook.svg" alt="" />
-                </a>
+      <div id="menuButton">Toggle Menu Position</div>
+  
+      <!-- Scroll-to button -->
+      <button id="scrollToSlideThree">Scroll to Slide Three</button>
+  
+      <!-- /////////// Swiper ////////// -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <div class="swiperSlideWrap heroSlide swiper-zoom-container">
+              <!-- Bento One -->
+              <div
+                class="bento one hide-mobile animated"
+                data-animation="flipInX" data-tilt data-tilt-max="10">
+                <div class="bentoInner">
+                  <a href="#">
+                    <img src="assets/icon-tiktok.svg" alt="" />
+                  </a>
+                  <a href="#">
+                    <img src="assets/icon-instagram.svg" alt="" />
+                  </a>
+                  <a href="#">
+                    <img src="assets/icon-facebook.svg" alt="" />
+                  </a>
+                </div>
+              </div>
+  
+              <!-- Bento Two -->
+              <div class="bento two">
+                <div class="bentoInner">
+                  <h1>Front-End Maestro of user happiness</h1>
+                  <p>Check out my gallery of my latest and greatest UX/UX solutions</p>
+                </div>
+              </div>
+  
+              <div class="bento three" data-tilt data-tilt-max="10">
+                <div class="bentoInner">Bento Three</div>
+              </div>
+              <div class="bento four" data-tilt data-tilt-max="10">
+                <div class="bentoInner">Bento Four</div>
               </div>
             </div>
-
-            <!-- Bento Two -->
-            <div class="bento two">
-              <div class="bentoInner">
-                <h1>Front-End Maestro of user happiness</h1>
-                <p>Check out my Latest and Greatests Work</p>
+          </div>
+          <!-- slide -->
+          <div class="swiper-slide" id="slideThree">
+            <div class="swiperSlideWrap typeTwo">
+              <div class="bento">
+                <div class="bentoInner">Slide 2</div>
               </div>
             </div>
-
-            <div
-              class="bento three wow animate__animated animate__slideInUp"
-              data-tilt
-              data-tilt-max="10"
-            >
-              <div class="bentoInner">Bento Three</div>
+          </div>
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <div class="swiperSlideWrap typeTwo">
+              <div class="bento slideThree">
+                <div class="bentoInner">Slide 3</div>
+              </div>
             </div>
-            <div
-              class="bento four wow animate__animated animate__slideInUp animate__delay-1s"
-              data-tilt
-              data-tilt-max="10"
-            >
-              <div class="bentoInner">Bento Four</div>
+          </div>
+          <!-- Slide -->
+          <div class="swiper-slide animated" data-animation="fadeInUp">
+            <div class="swiperSlideWrap typeTwo">
+              <div class="bento slideThree">
+                <div class="bentoInner">Slide 4</div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide -->
+          <div class="swiper-slide">
+            <div class="swiperSlideWrap typeTwo">
+              <div class="bento slideThree">
+                <div class="bentoInner">Slide 5</div>
+              </div>
             </div>
           </div>
         </div>
-        <!-- slide -->
-        <div class="swiper-slide" id="slideThree">
-          <div class="swiperSlideWrap typeTwo">
-            <div class="bento">
-              <div class="bentoInner">Slide 2</div>
-            </div>
-          </div>
-        </div>
-        <!-- Slide -->
-        <div class="swiper-slide wow animate__animated hidden animate__flipInX">
-          <div class="swiperSlideWrap typeTwo">
-            <div class="bento slideThree">
-              <div class="bentoInner">Slide 3</div>
-            </div>
-          </div>
-        </div>
-        <!-- Slide -->
-        <div class="swiper-slide wow animate__animated hidden animate__flipInX">
-          <div class="swiperSlideWrap typeTwo">
-            <div class="bento slideThree">
-              <div class="bentoInner">Slide 4</div>
-            </div>
-          </div>
-        </div>
-        <!-- Slide -->
-        <div class="swiper-slide wow animate__animated hidden animate__flipInX">
-          <div class="swiperSlideWrap typeTwo">
-            <div class="bento slideThree">
-              <div class="bentoInner">Slide 5</div>
-            </div>
-          </div>
-        </div>
+        <!-- End Swiper Wrapper -->
+        <!-- <div class="swiper-pagination"></div> -->
       </div>
-      <!-- End Swiper Wrapper -->
-      <!-- <div class="swiper-pagination"></div> -->
-    </div>
+</div>
 
     <!-- ////////// Scipts ////////// -->
-
-    <!-- Wow JS -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-      integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
 
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -160,9 +142,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 
     <script>
-      // Initialize Wow.js
-      new WOW().init();
-
       // Initialize Swiper
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: "auto",
@@ -195,15 +174,19 @@
 
       // Button click event handler to toggle menu position
       var menuButton = document.getElementById("menuButton");
+      var menu = document.getElementById("menu");
+      var isMenuOpen = false;
+
       menuButton.addEventListener("click", function () {
-        var menu = document.getElementById("menu");
-        // Toggle the menu position
-        if (menu.style.left === "-100px") {
+        if (!isMenuOpen) {
           menu.style.left = "0";
         } else {
           menu.style.left = "-100px";
         }
+        isMenuOpen = !isMenuOpen; // Toggle menu state
       });
+
+      // ------------------
 
       document
         .getElementById("scrollToSlideThree")
@@ -240,7 +223,7 @@
           menu.style.left = currentScrollLeft + "px";
 
           // Check if the user has scrolled back to the very beginning (heroSlide)
-          if (swiper.translate <= -(window.innerWidth * 0.7)) {
+          if (swiper.translate <= -(window.innerWidth * 0.4)) {
             // Adjusted condition to start 70vw before the actual beginning
             isAtBeginning = true;
           } else {
@@ -262,6 +245,44 @@
         if (window.innerWidth <= 1200 && menu.offsetLeft === 0) {
           menu.style.left = "-100px";
         }
+      });
+    </script>
+
+    <!-- ----------------------- -->
+
+    <script>
+      // Function to handle intersection
+      function handleIntersection(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > 0) {
+            // If element is in viewport
+            entry.target.classList.add("visible"); // Add class to make it visible
+            if (entry.target.dataset.animation === "flipInX") {
+              entry.target.classList.add("flipInX"); // Add flipInX animation class
+            } else if (entry.target.dataset.animation === "fadeInUp") {
+              entry.target.classList.add("fadeInUp"); // Add fadeInUp animation class
+            }
+            observer.unobserve(entry.target); // Stop observing once animation triggered
+          }
+        });
+      }
+
+      // Options for the observer (which entries should be observed)
+      const options = {
+        root: null, // Use the viewport as the root
+        rootMargin: "0px", // No margin
+        threshold: 0.5, // When half of the element is in the viewport
+      };
+
+      // Create the observer
+      const observer = new IntersectionObserver(handleIntersection, options);
+
+      // Select elements to be observed
+      const animatedElements = document.querySelectorAll(".animated");
+
+      // Start observing each animated element
+      animatedElements.forEach((element) => {
+        observer.observe(element);
       });
     </script>
   </body>

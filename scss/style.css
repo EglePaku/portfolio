@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap");
 .swiper {
-  width: 100dvw;
-  height: 100dvh;
+  width: 100%;
+  height: 100%;
   background-color: #000;
 }
 
@@ -80,20 +80,32 @@
 }
 
 #menu {
-  position: fixed;
+  position: absolute;
   top: 0;
   padding-top: 18px;
   padding-bottom: 18px;
   left: -100px; /* Initial position */
   width: 100px; /* Adjust width as needed */
-  height: 100dvh; /* Adjust height as needed */
-  background-color: #000;
+  height: calc(100% - 36px);
   color: white;
   transition: left 0.3s ease-in-out; /* Transition for smooth animation */
   z-index: 99999999;
   display: flex;
   align-items: start;
   justify-content: center;
+  padding-bottom: 45px;
+}
+#menu::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 70%;
+  background-image: url(../assets/sidebar-bg.svg);
+  background-size: cover;
+  background-position: bottom right;
+  position: absolute;
+  left: 0;
+  z-index: -1;
 }
 #menu:before {
   content: "";
@@ -106,21 +118,21 @@
   left: 100px;
   position: absolute;
 }
-#menu:after {
-  content: "";
+
+.link {
   display: block;
-  width: 30px;
-  height: 30px;
-  background-image: url(../assets/menu-style.svg);
-  background-size: cover;
-  bottom: 18px;
-  left: 100px;
-  position: absolute;
-  transform: scaleY(-1);
+  box-sizing: border-box;
+  position: fixed;
+  width: 55px;
+  height: 10%;
+  border-radius: 500px;
+  background-color: #9096E2;
+  margin-top: 72vh;
+  top: 0;
 }
 
 #menuButton {
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: -200px;
   z-index: 99999999;
@@ -131,11 +143,12 @@
   border-radius: 5px;
   transition: ease-in-out all 0.2s;
   display: block;
-  -webkit-overflow-scrolling: touch;
-  -webkit-box-sizing: border-box;
 }
 
 @media screen and (max-width: 1200px) {
+  .typeTwo {
+    min-width: 100vw;
+  }
   .bentoInner {
     border: 1px solid yellow;
   }
@@ -196,7 +209,7 @@
   width: 40px;
   height: 40px;
   border-radius: 500px;
-  background-color: #FFCCCC;
+  background-color: #ffcccc;
   position: absolute;
   top: 20%;
   left: 0%;
@@ -210,8 +223,8 @@
   transform: scale(1.2);
 }
 .bento.one .bentoInner a img {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
 }
 
 .bento.three .bentoInner {
@@ -223,11 +236,48 @@
 }
 
 .typeTwo .bentoInner {
-  background-image: url(../assets/portfolio-1.png);
+  background-image: url(https://cdn.dribbble.com/userupload/13501578/file/original-e34bb666ee4046bfffbcd951e9accc65.png?resize=2048x1536);
   background-size: cover;
   background-position: center;
 }
 
+.animated {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Smooth transition for opacity change */
+}
+
+.animated.visible {
+  opacity: 1;
+}
+
+.flipInX {
+  animation: flipInX 1s ease;
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease;
+}
+
+@keyframes flipInX {
+  from {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
@@ -253,11 +303,31 @@ p {
 }
 
 
-html,
+html {
+  background-color: #161616;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+}
+
 body {
   position: relative;
   height: 100dvh !important;
+  width: 100dvw !important;
   overflow-y: hidden !important;
+  overflow-x: hidden !important;
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  background-color: #000;
+  max-width: 1920px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
+  position: relative !important;
 }/*# sourceMappingURL=style.css.map */
