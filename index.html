@@ -31,12 +31,12 @@
     </style>
   </head>
   <body>
-<div class="wrapper">
+    <div class="wrapper">
       <!-- /////////// Menu ///////////// -->
       <div id="menu" class="">
         <!-- Bento One -->
         <div class="bento one">
-          <div class="bentoInner" data-tilt data-tilt-max="10">
+          <div class="bentoInner" data-tilt data-tilt-max="20">
             <a href="#">
               <img src="assets/icon-tiktok.svg" alt="" />
             </a>
@@ -52,10 +52,10 @@
         <div class="link" data-tilt data-tilt-max="30"></div>
       </div>
       <div id="menuButton">Toggle Menu Position</div>
-  
+
       <!-- Scroll-to button -->
       <button id="scrollToSlideThree">Scroll to Slide Three</button>
-  
+
       <!-- /////////// Swiper ////////// -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
@@ -65,7 +65,10 @@
               <!-- Bento One -->
               <div
                 class="bento one hide-mobile animated"
-                data-animation="flipInX" data-tilt data-tilt-max="10">
+                data-animation="flipInX"
+                data-tilt
+                data-tilt-max="20"
+              >
                 <div class="bentoInner">
                   <a href="#">
                     <img src="assets/icon-tiktok.svg" alt="" />
@@ -78,15 +81,18 @@
                   </a>
                 </div>
               </div>
-  
+
               <!-- Bento Two -->
               <div class="bento two">
                 <div class="bentoInner">
                   <h1>Front-End Maestro of user happiness</h1>
-                  <p>Check out my gallery of my latest and greatest UX/UX solutions</p>
+                  <p>
+                    Check out my gallery of my latest and greatest UX/UX
+                    solutions
+                  </p>
                 </div>
               </div>
-  
+
               <div class="bento three" data-tilt data-tilt-max="10">
                 <div class="bentoInner">Bento Three</div>
               </div>
@@ -131,7 +137,7 @@
         <!-- End Swiper Wrapper -->
         <!-- <div class="swiper-pagination"></div> -->
       </div>
-</div>
+    </div>
 
     <!-- ////////// Scipts ////////// -->
 
@@ -202,8 +208,17 @@
           // Get the position of the desired slide
           var slideOffset = slideThree.offsetLeft;
 
-          // Calculate the offset for scrolling 15vw to the right
-          var scrollToOffset = slideOffset - 0.1 * window.innerWidth;
+          // Check window width and set scroll offset accordingly
+          var scrollToOffset;
+          if (window.innerWidth >= 1920) {
+            scrollToOffset = slideOffset - 0.18 * window.innerWidth;
+          } else if (window.innerWidth >= 1500) {
+            scrollToOffset = slideOffset - 0.14 * window.innerWidth;
+          } else if (window.innerWidth >= 1200) {
+            scrollToOffset = slideOffset - 0.1 * window.innerWidth;
+          } else {
+            scrollToOffset = slideOffset; // Default value, no need to multiply by 0
+          }
 
           // Scroll to the desired position with animation
           swiper.slideTo(slideIndex, 500, false); // Adjust the duration as needed for smoothness
@@ -212,32 +227,54 @@
 
       // -----------------------
 
-      // Variable to track if the user has scrolled back to the very beginning
-      var isAtBeginning = true;
+// Variable to track if the user has scrolled back to the very beginning
+var isAtBeginning = true;
 
-      // Toggle menu visibility and position on mousewheel
-      document.addEventListener("wheel", function (event) {
-        if (window.innerWidth > 1200) {
-          var currentScrollLeft = event.deltaY > 0 ? 0 : -100; // Adjust the value as needed
-          var menu = document.getElementById("menu");
-          menu.style.left = currentScrollLeft + "px";
+// Toggle menu visibility and position on mousewheel
+document.addEventListener("wheel", function (event) {
+  if (window.innerWidth > 1200) {
+    var currentScrollLeft = event.deltaY > 0 ? 0 : -100; // Adjust the value as needed
+    var menu = document.getElementById("menu");
+    menu.style.left = currentScrollLeft + "px";
 
-          // Check if the user has scrolled back to the very beginning (heroSlide)
-          if (swiper.translate <= -(window.innerWidth * 0.4)) {
-            // Adjusted condition to start 70vw before the actual beginning
-            isAtBeginning = true;
-          } else {
-            isAtBeginning = false;
-          }
+    // Check if the user has scrolled back to the very beginning (heroSlide)
+    if (swiper.translate <= -(window.innerWidth * 0.2)) {
+      // Adjusted condition to start 70vw before the actual beginning
+      isAtBeginning = true;
+    } else {
+      isAtBeginning = false;
+    }
 
-          // Show menu if at the beginning or if scrolled past the beginning
-          if (isAtBeginning) {
-            menu.style.left = "0";
-          } else {
-            menu.style.left = "-100px";
-          }
-        }
-      });
+    // Show menu if at the beginning or if scrolled past the beginning
+    if (isAtBeginning) {
+      menu.style.left = "0";
+    } else {
+      menu.style.left = "-100px";
+    }
+  }
+});
+
+var menu = document.getElementById("menu");
+var bodyOverlay = document.createElement("div");
+bodyOverlay.classList.add("overlay");
+document.body.appendChild(bodyOverlay);
+
+menu.addEventListener("mouseenter", function () {
+  bodyOverlay.style.display = "block";
+  bodyOverlay.classList.add("fadeIn");
+});
+
+menu.addEventListener("mouseleave", function () {
+  bodyOverlay.classList.remove("fadeIn");
+  bodyOverlay.classList.add("fadeOut");
+  setTimeout(function() {
+    bodyOverlay.style.display = "none";
+    bodyOverlay.classList.remove("fadeOut");
+  }, 300); // Adjust timing to match animation duration
+});
+
+
+
 
       // Adjust menu position on window resize
       window.addEventListener("resize", function () {
