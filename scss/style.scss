@@ -5,26 +5,29 @@
 /*# sourceMappingURL=style.scss.map */
 
 html{
-  background-color: #161616;
+  background-color: #000;
   display: flex;
   justify-content: center;
-  overflow-y: hidden !important;
+  // overflow-y: hidden !important;
   overflow-x: hidden !important;
+  height: 100dvh !important;
+  width: 100dvw !important;
 }
 body {
   position: relative;
   height: 100dvh !important;
   width: 100dvw !important;
 
-  overflow-y: hidden !important;
+  // overflow-y: hidden !important;
   overflow-x: hidden !important;
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
-  background-color: #000;
+  background-color: #1C1C1C;
   max-width: 1920px;
 }
+
 
 .wrapper {
   width: 100%;
@@ -32,4 +35,23 @@ body {
   max-height: 800px;
   // max-width: 1500px;
   position: relative !important;
+}
+
+.copy {
+  position: absolute;
+margin-right: auto;
+margin-left: auto;
+text-align: center;
+  color: #fff;
+  width: 100%;
+  font-size: 11px;
+  opacity: .2;
+  z-index: 9999;
+
+}
+.copy.top {
+  top: 10px;
+}
+.copy.bottom {
+  bottom: 10px;
 }
